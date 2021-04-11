@@ -7,7 +7,9 @@ import java.util.List;
  * @author Liu Yanping
  * @date 2020/9/5 17:44
  *
- * 实现一个主题
+ * 实现一个主题，当该主题变动时可以通知内部的观察者列表
+ *
+ * 这个主题可以注册观察者、删除观察者、通知观察者
  *
  */
 public class WeatherSubject implements Subject {

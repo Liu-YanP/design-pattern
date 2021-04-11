@@ -8,6 +8,8 @@ package com.lyp.observer.demo1;
  * 继承观察者接口，实现一个观察者
  *
  * 引用所能够调用的方法取决于引用的类型，而如何具体的实现该方法取决于对象的类型。
+ *
+ * 观察者持有一个主题的对象
  */
 public class TemperatureObserver implements Observer, DisplayElement {
 
@@ -29,6 +31,6 @@ public class TemperatureObserver implements Observer, DisplayElement {
     }
 
     public void display() {
-        System.out.println("天气状况为:" + temperature);
+        System.out.println("天气状况为:" + temperature+"\n"+pressure);
     }
 }
