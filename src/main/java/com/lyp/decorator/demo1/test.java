@@ -1,6 +1,8 @@
 package com.lyp.decorator.demo1;
 
 /**
+ * 装饰器模式
+ *
  * @author Liu Yanping
  * @date 2021/1/17 16:05
  */

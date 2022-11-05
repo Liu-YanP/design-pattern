@@ -9,7 +9,7 @@ import java.util.List;
  *
  * 实现一个主题，当该主题变动时可以通知内部的观察者列表
  *
- * 这个主题可以注册观察者、删除观察者、通知观察者
+ * 这个主题可以注册观察者、删除观察者、通知观察者、触发通知事件
  *
  */
 public class WeatherSubject implements Subject {
@@ -25,16 +25,11 @@ public class WeatherSubject implements Subject {
     }
 
     public void removeObserver(Observer observer) {
-        int index = observerList.indexOf(observer);
-        if (index >= 0) {
-            observerList.remove(index);
-        }
+        observerList.remove(observer);
     }
 
     public void notifyObserver() {
-        for (Observer observer : observerList) {
-            observer.update(temperature, pressure);
-        }
+        observerList.forEach(O -> O.update(temperature, pressure));
     }
 
     public float getTemperature() {
@@ -53,6 +48,12 @@ public class WeatherSubject implements Subject {
         this.pressure = pressure;
     }
 
+    /**
+     * 触发通知事件
+     *
+     * @param temperature
+     * @param pressure
+     */
     public void measurementChange(float temperature, float pressure) {
         this.pressure = pressure;
         this.temperature = temperature;

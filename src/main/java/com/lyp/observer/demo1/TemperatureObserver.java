@@ -19,11 +19,22 @@ public class TemperatureObserver implements Observer, DisplayElement {
     //引用类型是subject类，里面没有getTemperature 方法，所以不能调用
     private Subject weather;
 
+    /**
+     * 观察者持有对应主题的对象
+     *
+     * @param subject
+     */
     public TemperatureObserver(Subject subject) {
         this.weather = subject;
         weather.registerObserver(this);
     }
 
+    /**
+     * 观察者触发后的动作
+     *
+     * @param temperature
+     * @param pressure
+     */
     public void update(float temperature, float pressure) {
         this.pressure = pressure;
         this.temperature = temperature;
